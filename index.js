@@ -85,7 +85,7 @@ bot.on('messageCreate', async (message) => {
         }
 
         const embed = new EmbedBuilder()
-            .setTitle("Roxy Cloner V2 Setup")
+            .setTitle("Z4MDAR Cloner Setup")
             .setDescription(`Cloning from **${sourceGuild.name}** to **${targetGuild.name}**\n\n` +
                 `**1.** Delete Existing Channels\n` +
                 `**2.** Delete Existing Roles\n` +
@@ -410,7 +410,11 @@ async function startCloningProcess(message, sourceGuild, targetGuild, opts) {
         }
     }
 
+    try {
     await message.author.send("Cloning completed successfully!");
+} catch (err) {
+    console.log("Could not DM user");
+    }
 }
 
 bot.login(BOT_TOKEN).catch(() => console.error("Invalid Bot Token"));
